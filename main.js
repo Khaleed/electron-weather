@@ -1,15 +1,21 @@
-const {app, BrowserWindow, ipcMain, Tray} = require('electron')
-const path = require('path')
+const {app, BrowserWindow, ipcMain, Tray} = require('electron');
+const path = require('path');
 
-const assetsDirectory = path.join(__dirname, 'assets')
+const assetsDirectory = path.join(__dirname, 'assets');
 
-let tray = undefined
-let window = undefined
+let tray = undefined;
+let window = undefined;
 
-process.env.GOOGLE_API_KEY = "AIzaSyAjQz5Scgjt8A-n_PKQWjNiYg-ht2gUJts"
+process.env.GOOGLE_API_KEY = "AIzaSyAjQz5Scgjt8A-n_PKQWjNiYg-ht2gUJts";
 
+var menubar = require('menubar');
+var mb = menubar();
 
-app.on('ready', () => {
+mb.on('ready', function ready () {
+    console.log('app is ready');
+    // your app code here
+});
+/* app.on('ready', () => {
   createTray()
   createWindow()
 })
@@ -47,13 +53,13 @@ const getWindowPosition = () => {
 }
 
 const createWindow = () => {
-  window = new BrowserWindow({
-    
-
+    window = new BrowserWindow({
+    width: 300,
+    height: 450,
     show: false,
     frame: false,
     fullscreenable: false,
-    resizable: false,
+    resizable: true,
     transparent: true,
     webPreferences: {
       // Prevents renderer process code from not running when window is
@@ -85,3 +91,4 @@ const showWindow = () => {
   window.show()
   window.focus()
 }
+*/
